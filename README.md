@@ -23,7 +23,7 @@ This smart plug is particularly interesting because thanks to its factory firmwa
 
 **No soldering or wiring is needed for this!** The following procedure is completely wireless and uses a precompiled binary.
 
-> **Warning** Note: this procedure was tested, but should something go wrong in the OTA process there's the possibility that your device may become bricked (recovery will require the physical procedure described below). Do this at your own risk.
+> **Warning** This procedure was tested, but should something go wrong in the OTA process there's the possibility that your device may become bricked (recovery will require the physical procedure described below). Do this at your own risk.
 
 1. Plug the Shelly device into a power socket.
 2. Connect your smartphone or PC to the *"shellyplug-s-XXXXXX"* WiFi network
@@ -31,7 +31,7 @@ This smart plug is particularly interesting because thanks to its factory firmwa
 3. Open [http://192.168.33.1/](http://192.168.33.1/) in a web browser to access the Shelly configuration interface, and navigate to the "Internet & Security" section.
 4. Configure your WiFi credentials in the "WIFI MODE - CLIENT" and save.
 5. After the Shelly device reboots you'll need to check that it's reachable on your main WiFi network. This time, since it was assigned an IP address dynamicaly, you'll need to figure out that address using one of these methods:
-    * Try connecting to [http://shellyplug-s-XXXXXX](http://shellyplug-s-XXXXXX) replacing this with the network name you saw in step 2 (it should be also used as hostname).
+    * Try connecting to [http://shellyplug-s-XXXXXX](http://shellyplug-s-XXXXXX) replacing this with the network name you saw in step 2 which is also advertised as hostname.
     * If it doesn't work, try to run `arp -a` if you're on Mac or Linux to see a list of devices in your network.
     * As last resort, you can open your router interface to see the connected devices their IP addresses.
 6. After you checked that the Shelly device connected successfully to your WiFi network and that you know its hostname/IP, it's time to launch the actual OTA. Put the Shelly hostname/IP in this long URL and open it with your web browser:
@@ -58,6 +58,12 @@ This smart plug is particularly interesting because thanks to its factory firmwa
     * `current` (type: float)
 
 11. Now create a dashboard and have fun!
+
+## Usage
+
+During normal operation, the **red LED** reflects the relay status (on/off), while the **blue LED** reflects the cloud connection status (blinking: connecting; steady: connected).
+
+If the device fails to connect to WiFi on boot, it will switch to access point mode exposing the configuration web portal. In order to activate such mode manually, keep the button pressed for at least 5 seconds when powering the device.
 
 ## Advanced: remote console
 
@@ -111,7 +117,7 @@ If you use the above OTA flashing procedure you don't need to compile this firmw
 > This method is mostly useful when testing firmware customizations.
 
 1. Open the device by unscrewing the small screw you'll find on the bottom, then extract the PCB by removing the two additional screws you'll find inside. Be careful not to break the WiFi antenna.
-2. Solder pin headers on the five holes. I recommend using male pin headers because female headers might prevent the upper part of the enclosure from being closed correctly.
+2. Solder pin headers on the five holes.
 3. Get a USB-TTL serial adapter and **make sure it's working at 3.3V**. I'm using the one by DSD-TECH but any will work if advertised to work with ESP8266/ESP32.
 4. Connect the pins to the serial adapter. See <https://faulty.cloud/blog/shelly-plug-s-pinout> for the pinout.
     * (*Shelly* &rarr; *serial adapter*)
