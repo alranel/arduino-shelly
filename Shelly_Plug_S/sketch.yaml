@@ -1,0 +1,13 @@
+profiles:
+  generic:
+    fqbn: esp8266:esp8266:generic:eesz=2M
+    platforms:
+      - platform: esp8266:esp8266 (3.0.2)
+        platform_index_url: https://arduino.esp8266.com/stable/package_esp8266com_index.json
+    libraries:
+      - ArduinoIoTCloud (1.8.0)
+      - Arduino_ConnectionHandler (0.7.0)
+      - Arduino_DebugUtils (1.4.0)
+      - ArduinoMqttClient (0.1.6)
+      - Button2 (2.1.0)
+      - WiFiManager (2.0.14-beta)
