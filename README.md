@@ -107,7 +107,7 @@ If you want to make changes or compile it yourself, just compile it as follows:
 
 1. Clone this repository.
 2. Install the esp8266 core for Arduino and the following libraries: ArduinoIoTCloud, Button2, WiFiManager.
-3. Execute `arduino-cli compile --profile generic`
+3. Execute `arduino-cli compile --profile generic -e`
 4. Host the firmware in a publicly accessible HTTP (no HTTPS) server in order to install it via OTA.
 
 If you use the above OTA flashing procedure you don't need to compile this firmware youself as you can rely on the precompiled binary!
